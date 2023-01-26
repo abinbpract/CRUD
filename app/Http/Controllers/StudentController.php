@@ -36,7 +36,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name'=>'required','age'=>'required']);
+        $request->validate(['name'=>'required','age'=>'required|numeric']);
         Student::create($request->all());
         return redirect()->route('students.index')
         ->with('success','created successfully');
