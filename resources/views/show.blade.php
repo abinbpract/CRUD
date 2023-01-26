@@ -1,0 +1,10 @@
+<table>
+    <tr>
+    <th>name</th>
+    <th>age</th>
+    </tr>
+    <tr>
+    <td>{{$student->name}}</td>
+    <td>{{$student->age}}</td>
+    </tr>
+</table>
