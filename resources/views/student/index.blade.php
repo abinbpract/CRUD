@@ -9,16 +9,23 @@
         </div>
 @endif
 
-<table>
+<table border="1">
     <tr>
-    <th>name<th>
-    <th>age<th>
+    <th>name</th>
+    <th>age</th>
+    <th>gender</th>
+    <th>qual</th>
+    <th>spec</th>
+    <th>photo</th>
     </tr>
     @foreach($students as $student)
     <tr>
         <td>{{$student->name}}</td>
         <td>{{$student->age}}</td>
-        <td>
+        <td>{{$student->gender}}</td>
+        <td>{{$student->qual}}</td>
+        <td>{{$student->hobbies}}</td>
+        <td> <img src="{{$student->photo}}" width="50" height="50" alt=""></td>
         <td><a href="{{route('students.show',$student->id)}}">show</a></td>
         <td><a href="{{route('students.edit',$student->id)}}">edit</a></td>
             <form action="{{ route('students.destroy',$student->id) }}" method="POST">

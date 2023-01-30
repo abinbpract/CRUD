@@ -15,7 +15,7 @@ class StudentController extends Controller
     public function index()
     {
         $students=Student::latest()->paginate(5);
-        return view('index',compact('students'));
+        return view('student.index',compact('students'));
     }
 
     /**
@@ -25,7 +25,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('student.create');
     }
 
     /**
@@ -36,7 +36,10 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name'=>'required','age'=>'required|numeric']);
+        $request->validate(['name'=>'required|min:2|max:5',
+                           'age'=>'required|numeric',
+                        'gender'=>'required',
+                    'qual'=>'required']);
         Student::create($request->all());
         return redirect()->route('students.index')
         ->with('success','created successfully');
@@ -50,7 +53,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        return view('show',compact('student'));
+        return view('student.show',compact('student'));
     }
 
     /**
@@ -61,7 +64,7 @@ class StudentController extends Controller
      */
     public function edit(Student $student)
     {
-        return view('edit',compact('student'));
+        return view('student.edit',compact('student'));
     }
 
     /**
