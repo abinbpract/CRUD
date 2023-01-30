@@ -25,7 +25,7 @@
         <td>{{$student->gender}}</td>
         <td>{{$student->qual}}</td>
         <td>{{$student->hobbies}}</td>
-        <td> <img src="{{$student->photo}}" width="50" height="50" alt=""></td>
+        <td> <img src="{{ url('storage/images/'.$student->photo_url) }}" width="50" height="50" alt="images"></td>
         <td><a href="{{route('students.show',$student->id)}}">show</a></td>
         <td><a href="{{route('students.edit',$student->id)}}">edit</a></td>
             <form action="{{ route('students.destroy',$student->id) }}" method="POST">

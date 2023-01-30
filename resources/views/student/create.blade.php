@@ -1,7 +1,7 @@
 <div>
     <a href="{{route('students.index')}}">back</a>
 </div>
-<form action="{{route('students.store')}}" method="POST">
+<form action="{{route('students.store')}}" method="POST" enctype="multipart/form-data">
 @csrf
 name:<input type="text" name="name" value="{{old('name')}}">
 @error('name')
@@ -32,7 +32,7 @@ hobbies:<input type="checkbox" name="hobbies" value="tv">
 <input type="checkbox" name="hobbies" value="sports">
 <label for="">sports</label>
 <br>
-photo:<input type="file" name="photo"><br>
+photo: <input type="file" name="photo" id="photo"><br>
 
 <div>
     <button type="submit">submit</button>

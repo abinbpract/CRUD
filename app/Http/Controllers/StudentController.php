@@ -40,9 +40,16 @@ class StudentController extends Controller
                            'age'=>'required|numeric',
                         'gender'=>'required',
                     'qual'=>'required']);
-        Student::create($request->all());
-        return redirect()->route('students.index')
-        ->with('success','created successfully');
+
+                     $img=time().'.'.$request->photo->extension();
+                    $request->photo->storeAs('public/images', $img);
+            
+                     $request['photo_url']=$img;
+            
+                //   dd($request->all());
+                    Student::create($request->except('photo'));
+
+        return redirect()->route('students.index')->with('success','created successfully');
     }
 
     /**

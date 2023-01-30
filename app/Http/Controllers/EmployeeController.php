@@ -43,12 +43,11 @@ class EmployeeController extends Controller
                             'qual'=>'required']);
                             
         $img=time().'.'.$request->photo->extension();
-        // request('photo')->move(public_path('images'), $img);
         request('photo')->storeAs('public/images', $img);
 
         $request['photo_url']=$img;
 
-        // dd($request->all());
+      
         Employee::create($request->except('photo'));
         return redirect()->route('employees.index')->with('success','created successfully');
     }
