@@ -25,7 +25,10 @@ hobbies: <label for="">{{$student->hobbies}}</label>
 <input type="checkbox" name="hobbies" value="sports">
 <label for="">sports</label>
 <br>
-photo: <img src="{{$student->photo}}" width="50" height="50" alt="">
+dob: <label for="">{{$student->dob}}</label> 
+<input type="date" name="dob" id="dob">
+    <br>
+photo: <img src="{{ url('storage/images/'.$student->photo_url) }}" width="50" height="50" alt="images">
 <input type="file" name="photo">
 <br>
 </div>

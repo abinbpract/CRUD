@@ -5,6 +5,7 @@
     <th>gender</th>
     <th>qual</th>
     <th>spec</th>
+    <th>dob</th>
     <th>photo</th>
     </tr>
     <tr>
@@ -13,6 +14,7 @@
         <td>{{$student->gender}}</td>
         <td>{{$student->qual}}</td>
         <td>{{$student->hobbies}}</td>
-        <td>{{$student->photo}}</td>
+        <td>{{$student->dob}}</td>
+        <td><img src="{{ url('storage/images/'.$student->photo_url) }}" width="50" height="50" alt="images"></td>
     </tr>
 </table>

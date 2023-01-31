@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("gender");
             $table->string("qual");
             $table->string("hobbies")->nullable();
+            $table->date("dob");
             $table->string("photo_url")->nullable();
             $table->timestamps();
         });

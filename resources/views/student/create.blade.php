@@ -8,7 +8,8 @@ name:<input type="text" name="name" value="{{old('name')}}">
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror
 <br>
-age:<input type="text" name="age" value="{{old('age')}}">
+age:
+<input type="number" name="age" id="age" min="10" max="50" value="10">
 @error('age')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror<br>
@@ -20,10 +21,14 @@ gender:<input type="radio" name="gender" id="gender" value="male">
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror<br>
 qual: <select name="qual" id="qual">
+    <option value=" ">select</option>
     <option value="pg">pg</option>
     <option value="pg">ug</option>
     <option value="pg">hss</option>
 </select>
+@error('qual')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror<br>
 <br>
 hobbies:<input type="checkbox" name="hobbies" value="tv">
 <label for="">tv</label>
@@ -31,8 +36,19 @@ hobbies:<input type="checkbox" name="hobbies" value="tv">
 <label for="">music</label>
 <input type="checkbox" name="hobbies" value="sports">
 <label for="">sports</label>
+@error('hobbies')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror<br>
 <br>
-photo: <input type="file" name="photo" id="photo"><br>
+dob: <input type="date" name="dob" id="dob">
+    @error('dob')
+    <div>{{$message}}</div>
+    @enderror
+    <br>
+photo: <input type="file" name="photo" id="photo">
+@error('photo')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror<br><br>
 
 <div>
     <button type="submit">submit</button>

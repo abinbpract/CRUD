@@ -33,6 +33,11 @@
     <input type="checkbox" name="spec" id="spec" value="course3">
     <label for="spec">course3</label>
     <br>
+    dob: <input type="date" name="dob" id="dob">
+    @error('dob')
+    <div>{{$message}}</div>
+    @enderror
+    <br>
     photo: <input type="file" name="photo" id="photo"><br>
     <button type="submit">submit</button>
 </form>

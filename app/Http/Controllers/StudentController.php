@@ -36,10 +36,12 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name'=>'required|min:2|max:5',
+        $request->validate(['name'=>'required|min:2|max:5|regex:/^[a-zA-Z]+$/u',
                            'age'=>'required|numeric',
                         'gender'=>'required',
-                    'qual'=>'required']);
+                    'qual'=>'required',
+                'hobbies'=>'required',
+            'photo'=>'required|mimes:jpeg,jpg,png,gif']);
 
                      $img=time().'.'.$request->photo->extension();
                     $request->photo->storeAs('public/images', $img);

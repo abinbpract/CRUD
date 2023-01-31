@@ -24,6 +24,9 @@
     <input type="checkbox" name="spec" id="spec" value="course3">
     <label for="spec">course3</label>
     <br>
+    dob: <label for="">{{$employee->dob}}</label>
+    <input type="date" name="dob" id="dob">
+    <br>
     photo: <img src="{{ url('storage/images/'.$employee->photo_url) }}" width="50" height="50" alt="images">
     <input type="file" name="photo" id="photo">
     <br>
