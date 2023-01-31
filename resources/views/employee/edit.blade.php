@@ -1,4 +1,4 @@
-<form action="{{route('employees.update',$employee->id)}}" method="post">
+<form action="{{route('employees.update',$employee->id)}}" method="post" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     name: <input type="text" name="name" id="" value="{{$employee->name}}"><br>
@@ -24,7 +24,7 @@
     <input type="checkbox" name="spec" id="spec" value="course3">
     <label for="spec">course3</label>
     <br>
-    dob: <label for="">{{$employee->dob}}</label>
+    dob: <label for="">{{ \Carbon\Carbon::parse($employee->dob)->format('d/m/Y') }}</label>
     <input type="date" name="dob" id="dob">
     <br>
     photo: <img src="{{ url('storage/images/'.$employee->photo_url) }}" width="50" height="50" alt="images">

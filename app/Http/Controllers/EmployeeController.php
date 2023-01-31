@@ -83,7 +83,10 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        $employee->update($request->all());
+        $img=time().'.'.$request->photo->extension();
+        $request->photo->storeAs('public/images', $img);
+        $request['photo_url']=$img;
+        $employee->update($request->except('photo'));
         return redirect()->route('employees.index')->with('success','updated successfully');
     }
 

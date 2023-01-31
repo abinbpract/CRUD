@@ -48,7 +48,7 @@ class StudentController extends Controller
             
                      $request['photo_url']=$img;
             
-                //   dd($request->all());
+                
                     Student::create($request->except('photo'));
 
         return redirect()->route('students.index')->with('success','created successfully');
@@ -86,7 +86,10 @@ class StudentController extends Controller
     public function update(Request $request, Student $student)
     {
         $request->validate(['name'=>'required','age'=>'required']);
-        $student->update($request->all());
+        $img=time().'.'.$request->photo->extension();
+        $request->photo->storeAs('public/images', $img);
+        $request['photo_url']=$img;
+        $student->update($request->except('photo'));
         return redirect()->route('students.index')->with('success','updated successfully');
     }
 

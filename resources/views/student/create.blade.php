@@ -49,6 +49,7 @@ photo: <input type="file" name="photo" id="photo">
 @error('photo')
     <div class="alert alert-danger">{{ $message }}</div>
 @enderror<br><br>
+fathername:<input type="text" name="fathername" value="{{old('fathername')}}">
 
 <div>
     <button type="submit">submit</button>
